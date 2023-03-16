@@ -1,0 +1,37 @@
+﻿@model IEnumerable<News_Site.Models.Category>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Manage Categories</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Create Category</a>
+</p>
+<table class="table table-success table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>
+            <th>
+                Operation
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                <a class="btn btn-success" asp-action="Edit" asp-route-id="@item.CategoryID">Edit</a> |
+                <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.CategoryID">Details</a> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.CategoryID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,111 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model Category
+<form>
+    <select class="form-select" id="CategoryDropDownList" style="width: 38rem;background-color: aliceblue" >
+        <option value="-1">Select Category</option>
+    </select>
+</form>
+<br />
+<br />
+
+
+<div id="News">
+  
+
+</div>
+
+<form style="display:none" id="NewsForm" method="post">
+  <div id="NewsDiv" class="card" style="width: 38rem; cursor:pointer">
+
+  <img id="NewsImage" class="card-img-top" style="height:13rem" alt="Card image cap">
+  <div class="card-body">
+    <p id="NewsTitle" class="card-text"></p>
+  </div>
+  
+</div>
+<input class="btn btn-danger" type="submit" value="Read More Details...">
+</form>
+
+
+    
+@section Scripts {
+    <script>
+          function GetNewsByID() {
+
+              var divNews = $(event.target).closest("div")[0];
+              var newsID = divNews.getAttribute("value")
+
+        }
+    $(document).ready(function () {
+         
+        GetAllCategories()
+        GetAllNewsByCategoryID(-1)
+
+        function GetAllCategories(){
+
+             $.ajax({
+                url:'/Home/GetAllCategories',
+                type:'GET',
+                async:false,
+                success: function(Categories) {
+                    if (Categories.length > 0) {
+                         $.each(Categories, function(i,Category) { 
+                             $('#CategoryDropDownList').append($('<option></option>').attr('value',Category.categoryID).text(Category.categoryName));
+                        })
+                    }
+                     
+                },
+                error: function() {
+                    alert("something went wrong");
+                }
+            })
+        }
+
+         $("#CategoryDropDownList").on('change', function() { 
+              GetAllNewsByCategoryID($(this).val())
+         })
+
+      
+
+        function GetAllNewsByCategoryID(categoryID){
+
+              $('#News').empty();
+
+             $.ajax({
+                url:'/Home/GetAllNewsByCategoryID?categoryID=' +categoryID ,
+                type:'GET',
+                async:false,
+                success: function(News) {
+                    console.log(News)
+                    if(News.length > 0){
+                         $.each(News, function(i,SingleNews) { 
+
+                             var NewsForm = document.getElementById("NewsForm").cloneNode(true);
+                             console.log(SingleNews.newsID)
+                             NewsForm.setAttribute('action','/Home/NewsDetails?newsID='+SingleNews.newsID)
+                             NewsForm.querySelector("#NewsImage").setAttribute('src',SingleNews.imagePath)
+                             NewsForm.querySelector("#NewsTitle").innerHTML =SingleNews.newsTitle
+                            
+                             document.getElementById("News").appendChild(NewsForm);
+                             $("#News").append("<br />");
+                             NewsForm.style.display ='block';
+                            
+                             
+                        })
+                    }
+                     
+                },
+                error: function() {
+                    alert("something went wrong");
+                }
+            })
+        }
+       
+    })
+</script>
+}
+
+
+

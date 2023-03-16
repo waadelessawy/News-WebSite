@@ -1,0 +1,19 @@
+﻿@model News
+<div>
+    <nav b-pf1e7l2a93="" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div b-pf1e7l2a93="" class="container-fluid">
+                <h1 class="navbar-brand" href="/">@Model.Category.CategoryName</h1>
+              
+            </div>
+    </nav>
+    
+     <br/>
+   <img src="@Model.ImagePath" style="width: 60rem;"/>
+   <br/>
+    <h3>@Model.Date</h3>
+    <h1>@Model.NewsTitle</h1>
+    
+    <br/>
+    <p>@Model.Body</p>
+
+</div>

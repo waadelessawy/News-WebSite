@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>aspnet-News_Site-63667893-EE67-4259-90C4-EA79D360DC44</UserSecretsId>
+    <RootNamespace>News_Site</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.14" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.14" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.15">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.13" />
+    <PackageReference Include="Moment.js" Version="2.29.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Images\Alle-landen-ter-wereld-e1602076568118-2000x1000.jpg" />
+    <None Include="wwwroot\Images\cheapest-countries-to-visit-cheapest-scandinavian-country-denmark.jpg" />
+    <None Include="wwwroot\Images\csm_nonregmain_dfaadd592f_0.webp" />
+    <None Include="wwwroot\Images\english-speaking-countries-scaled.jpg" />
+    <None Include="wwwroot\Images\flags-different-countries-high-flagpoles-flags-different-countries-120334519.jpg" />
+    <None Include="wwwroot\Images\french-speaking-countries-bis-1.jpg" />
+    <None Include="wwwroot\Images\GettyImages-1255436927-f63080f1a1d24bc5b30d23f6ab97cf25.jpg" />
+    <None Include="wwwroot\Images\gettyimages-1287561656-1.jpg" />
+    <None Include="wwwroot\Images\images %281%29.jfif" />
+    <None Include="wwwroot\Images\images %282%29.jfif" />
+    <None Include="wwwroot\Images\images %283%29.jfif" />
+    <None Include="wwwroot\Images\images.jfif" />
+    <None Include="wwwroot\Images\IMF_advanced_economies_and_UN_least_developed_countries.svg.png" />
+    <None Include="wwwroot\Images\INDIA.jpg" />
+    <None Include="wwwroot\Images\istockphoto-1047906286-612x612.jpg" />
+    <None Include="wwwroot\Images\istockphoto-1329836000-170667a.jpg" />
+    <None Include="wwwroot\Images\states-of-the-world-and-their-flags-660869828-5ad8f496875db90036fe331c.jpg" />
+  </ItemGroup>
+
+</Project>
