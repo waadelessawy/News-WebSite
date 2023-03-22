@@ -77,7 +77,6 @@ namespace News_Site.Controllers
            
             if (ModelState.IsValid)
             {
-                _context.Categories.Attach(category);
                 _context.News.Add(newNews);
 
                 await _context.SaveChangesAsync();
@@ -137,8 +136,6 @@ namespace News_Site.Controllers
             {
                 try
                 {
-                    //_context.Entry(category).State = EntityState.Unchanged;
-                    _context.Categories.Attach(category);
                     _context.News.Update(newNews);
                     await _context.SaveChangesAsync();
                 }
